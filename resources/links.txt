@@ -1,1 +1,2 @@
 https://en.wikipedia.org/wiki/Netpbm#PPM_example
+https://stackoverflow.com/questions/74620396/how-to-convert-images-from-the-jpg-format-to-ppmp3
