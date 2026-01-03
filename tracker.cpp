@@ -2,7 +2,7 @@
 #include<fstream>
 using namespace std;
 int main() {
-    ifstream inHand("./resources/hand.ppm");
+    ifstream inHand("./resources/hand5.ppm");
     ofstream outHand("./resources/output.ppm");
     if (!inHand) { 
         cout << "Input file not found. Inappropriate output will be given." << endl;
@@ -21,10 +21,15 @@ int main() {
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
             inHand >> colors[y][x][0] >> colors[y][x][1] >> colors[y][x][2];
-            if (colors[y][x][0] > 180 && colors[y][x][1] > 100 && colors[y][x][1] < 180 && colors[y][x][2] > 80 && colors[y][x][2] < 160 && colors[y][x][0] > colors[y][x][1] && colors[y][x][1] > colors[y][x][2]) {
+            // colors[y][x][2] -= 20;
+            if (colors[y][x][0] >= 120 && colors[y][x][1] >= 85 && colors[y][x][1] <= 160 && colors[y][x][2] >= 60 && colors[y][x][2] <= 160 && colors[y][x][0] > colors[y][x][1] * 1.10) {// && colors[y][x][0] > colors[y][x][2]) {
                 colors[y][x][0] = 0;
                 colors[y][x][1] = 0;
                 colors[y][x][2] = 0;
+            } else {
+                colors[y][x][0] = 255;
+                colors[y][x][1] = 255;
+                colors[y][x][2] = 255;
             }
             // printing pixels
             outHand << colors[y][x][0] << " " << colors[y][x][1] << " " << colors[y][x][2] << " ";
